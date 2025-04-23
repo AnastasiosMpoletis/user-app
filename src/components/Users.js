@@ -23,6 +23,28 @@ class Users extends Component {
     };
   }
 
+  /**
+   * Just to test ErrorBoundary.
+   * 
+   * @param {*} previousProps 
+   * @param {*} previousState 
+   */
+  componentDidUpdate(previousProps, previousState) {
+    /**
+     * We can use try-catch but not when we want to handle the error in another component (e.g. a parent component).
+     * 
+     * try {
+     *  code
+     * } catch(error) {
+     *  handle error
+     * }
+     */
+
+    if (this.props.users.length === 0) {
+      throw new Error('No Users provided!');
+    }
+  }
+
   toggleUsersHandler() {
     // this.state.useState = false; NOT ALLOWED
 
